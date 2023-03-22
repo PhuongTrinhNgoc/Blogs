@@ -2,15 +2,19 @@
 
 @section('content')
     <div class="container">
+        <div>
+            <a href=" {{ route('articles.create') }}">create artiles</a>
+        </div>
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <h2> blogs 1 </h2>
-                <p class="lead"> 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus cupiditate provident sint nam ut
-                    corrupti.
-                </p>
-                <a href="#"> Read more</a>
-            </div>
+            @foreach ($articles as $newArr)
+                <div class="col-sm-4 item-blog">
+                    <h2> {{ $newArr->title }} </h2>
+                    <p class="lead">
+                      {{ $newArr->content }}
+                    </p>
+                    <a href="{{ route('articles.show', $newArr->id) }}"> Read more</a>
+                </div>
+            @endforeach
 
         </div>
     </div>
