@@ -9,7 +9,6 @@
                     <p class="lead">
                         {{ $article->content }}
                     </p>
-                    {{-- <a href="{{ $article }}"> Read more</a> --}}
 
 
         </div>

@@ -6,10 +6,10 @@
             @csrf
             <div class="">
               <div class="form-group">
-                <input name="title" type="text" class="form-control" placeholder="First name">
+                <input name="name" type="text" class="form-control" placeholder="First name">
               </div>
               <div class="form-group">
-                <input name="content" type="text" class="form-control" placeholder="Last name">
+                <input name="status" type="text" class="form-control" placeholder="Last name">
               </div>
             </div>
             <div class="col-auto">

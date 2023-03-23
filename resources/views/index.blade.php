@@ -13,9 +13,17 @@
                       {{ $newArr->content }}
                     </p>
                     <a href="{{ route('articles.show', $newArr->id) }}"> Read more</a>
+                    <a href="{{ route('articles.edit',$newArr->id) }}"> edit</a>
+                    <form action="{{route('articles.destroy',$newArr->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">delete</button>
+                    </form> 
                 </div>
+               
             @endforeach
 
         </div>
     </div>
 @endsection
+{{-- articles/{id}/edit --}}

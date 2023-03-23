@@ -9,4 +9,7 @@ class Article extends Model
     use HasFactory;
 
     protected $table = 'articles';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+    protected $fillable = [ 'title','content','id_attr'];
 }

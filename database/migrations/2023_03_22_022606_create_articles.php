@@ -11,11 +11,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('articles', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id('id');
             $table->string('title');
             $table->string('content');
             $table->timestamps();
+            // foreignkey
+            $table->integer('id_category');
+            $table->integer('id_attr');
+            // $table->foreign('category_id');
+        //             ->references('id')
+        //             ->on('categories')
+        //             // ->onDelete('cascade')
+        //             ->onDelete('set null');
         });
+       
     }
 
     /**

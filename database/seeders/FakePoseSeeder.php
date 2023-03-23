@@ -15,6 +15,7 @@ class FakePoseSeeder extends Seeder
                     DB::table('articles')->insert([
                         "title" => $fake->name,
                         "content" => $fake->sentence(10)
+
                     ]);
                 }
     }
