@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+    <div class="container-fluid container">
       <a class="navbar-brand" href="#">Blogs</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,6 +11,7 @@
           </li>
           <li class="nav-item">
             <a class="{{ request()->is('about') ? 'active' : ''}} nav-link " href="about">about</a>
+            
           </li>
     
         

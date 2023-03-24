@@ -15,11 +15,12 @@ class ArticlesController extends Controller
         return view('index',compact('articles','category'));
     }
     public function show($id){
-        $article = Article::find($id);
+        $article = Article::with('category')->find($id);
         return view('articles.article')->with('article', $article);
     }
     public function create(){
-        return view('articles.create');
+        $category = Category::all();
+        return view('articles.create',compact('category'));
     }
     public function edit($id){
      
@@ -42,10 +43,20 @@ class ArticlesController extends Controller
 
     }  
     public function store(Request $request){
+      
         $listCr = Article::create([
             'title' => $request->input('title'),
-            'content' => $request->input('content')]);
+            'content' => $request->input('content'),
+            'id_category' =>$request->input('category')
+        ]);
       $listCr->save();
         return redirect('/');
     }
+    public function showView($id){
+        $category = Category::all();
+
+        $articles = Article::where('id_category',$id)->get();
+        return view('viewOfcate',compact('articles','category'));
+    }
+
 }

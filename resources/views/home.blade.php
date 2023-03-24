@@ -2,9 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div>
-            <a href=" {{ route('articles.create') }}">create artiles</a>
-        </div>
+  
 
         <div style="margin-bottom: 50px" class="row">
             <div class="col-9">
@@ -13,8 +11,8 @@
                     @foreach ($category as $listCategory)
                         <div class="list-category">
                           
-                            <a class="{{ request()->is('category/'.$listCategory['id']) ? 'active' : '' }}" href="{{ route('cate_show', ['id' => $listCategory->id])  }}">{{ $listCategory->name }}</a>
-                            {{ dd('category/'.$listCategory['id']) }}
+                            <a class="{{ request()->is(`category/$listCategory->id`) ? 'active' : '' }}" href="{{ route('cate_show', ['id' => $listCategory->id])  }}">{{ $listCategory->name }}</a>
+                       
                         </div>
                     @endforeach
                 </div>
@@ -31,26 +29,19 @@
                             <a href="{{ route('articles.show', $newArr->id) }}">
                                 <div class="book">
                                     <div style=" padding: 6px 6px 6px 35px;height:100%" class="dada">
-                                        <div style="height: 70%">
+                                        <div style="height: 80%">
                                             <p class="lead">
                                                 {{ $newArr->content }}
                                             </p>
+                                          
+                                        </div>
+
+                                        <div style="height: 20%;text-align:center">
                                             <div class="">
                                                 <h6>{{ $newArr->category->name }}</h6>
                                             </div>
                                         </div>
 
-                                        <div style="height: 30%;  text-align: center;">
-                                            <a style="margin-bottom: 10px" class="btn-of-me" href="{{ route('articles.edit', $newArr->id) }}"> edit</a>
-                                            <form action="{{ route('articles.destroy', $newArr->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn-of-me-2">
-                                                    <a class="btn-of-me" href="">delete</a>
-                                                </button>
-                                        </div>
-
-                                        </form>
                                     </div>
                                     <div class="cover">
                                         <div class="main-img">

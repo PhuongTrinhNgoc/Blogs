@@ -18,11 +18,11 @@ return new class extends Migration
             // foreignkey
             $table->integer('id_category');
             $table->integer('id_attr');
-            // $table->foreign('category_id');
-        //             ->references('id')
-        //             ->on('categories')
-        //             // ->onDelete('cascade')
-        //             ->onDelete('set null');
+            $table->foreign('id_category')
+                    ->references('id')
+                    ->on('categories')
+                    // ->onDelete('cascade')
+                    ->oDelete('set null');
         });
        
     }

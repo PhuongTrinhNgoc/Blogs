@@ -10,3 +10,9 @@
 
         - xong : hiển thi dữ liệu trang home, sửa, xoá dữ liệu.
         - đang làm : category
+
+
+# báo cáo thứ 56- 24/3/2023
+
+        - xong : category
+        - đang làm : sắp xếp hiển thị theo thời gian

@@ -17,7 +17,7 @@ use App\Http\Controllers\CreatCategory;
 
 Route::get('/', [
     PagesController::class,
-    'index'
+    'home'
 ]);
 
   
@@ -54,10 +54,34 @@ Route::get('/articles/{id}', [
     ArticlesController::class,'show'
 ])->name('articles.show');
  
-Route::get('/creatCategory', [
-    CreatCategory::class,'index'
-])->name('category.show');
 
-Route::get('/showCategory', [
+// category
+Route::get('/categories', [
+    CreatCategory::class,'index'
+])->name('category.index');
+
+Route::post('/categories', [
     CreatCategory::class,'store'
 ])->name('category.store');
+
+Route::get('/categories/create',[
+    CreatCategory::class,'create'
+    ])->name('category.create');
+
+Route::get('/categories/{id}', [
+    CreatCategory::class,'show'
+    ])->name('category.show');
+Route::get('/categories/{id}/edit', [
+        CreatCategory::class,'edit'
+        ])->name('category.edit');
+
+Route::put('/categories/{id}/update', [
+            CreatCategory::class,'update'
+        ])->name('category.update');
+Route::delete('/categories/{id}', [
+            CreatCategory::class,'destroy'
+        ])->name('category.destroy');
+// route show view of category
+Route::get('/category/{id}',[
+    ArticlesController::class,'showView'
+])->name('cate_show');

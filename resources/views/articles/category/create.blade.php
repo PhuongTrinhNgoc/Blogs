@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <h1>creat category</h1>
     <div class="container">
-        <form action="{{ route('articles.store') }}" method="POST" class="form-horizontal">
+        <form action="{{ route('category.store') }}" method="POST" class="form-horizontal">
             @csrf
             <div class="">
               <div class="form-group">
-                <input name="name" type="text" class="form-control" placeholder="First name">
+                <input name="name" type="text" class="form-control" placeholder="name">
               </div>
               <div class="form-group">
-                <input name="status" type="text" class="form-control" placeholder="Last name">
+                <input name="status" type="text" class="form-control" placeholder="status">
               </div>
             </div>
             <div class="col-auto">
