@@ -17,8 +17,31 @@
         
         </ul>
         <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          {{-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button> --}}
+          <div>
+         @if (!empty(Auth::user()->userName))
+         <div style="display: flex;align-items:center">
+          <div style="margin-right: 20px">Hello  </div>
+          <div class="dropdown">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+         
+              <span style="font-size: 16px;font-weight:600">{{ Auth::user()->userName }}</span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <a style="margin-left: 20px" href=" {{ route('logout.user') }}">logout</a>
+            </ul>
+          </div>
+
+       
+         </div>
+       
+            @else
+      
+            <a href=" {{ route('login.user') }}">login</a>
+            {{-- {{ route('res-form') }} --}}
+      @endif 
+          </div>
         </form>
       </div>
     </div>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\CreatCategory;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,39 +22,45 @@ Route::get('/', [
 ]);
 
   
-Route::get('/articles', [
+Route::get('/admin', [
     ArticlesController::class,
     'index'
-]);
+])->name('admin.index');
+// Route::get('/{selectSort}', [
+//     ArticlesController::class,
+//     'index'
+// ]);
 Route::get('/about', [
     PagesController::class,
     'about'
 ]);
-Route::post('/articles',[
+Route::post('/admin',[
 ArticlesController::class,'store'
 ])->name('articles.store');
 
-Route::get('/articles/create', [
+Route::get('/admin/create', [
     ArticlesController::class,'create'
 ])->name('articles.create');
  
 
-Route::get('/articles/{id}/edit', [
+Route::get('/admin/{id}/edit', [
     ArticlesController::class,'edit'
 ])->name('articles.edit');
 
-Route::put('/articles/{id}/update', [
+Route::put('/admin/{id}/update', [
     ArticlesController::class,'update'
 ])->name('articles.update');
 
-Route::delete('/articles/{id}', [
+Route::delete('/admin/{id}', [
     ArticlesController::class,'destroy'
 ])->name('articles.destroy');
 
-Route::get('/articles/{id}', [
+Route::get('/home/{id}', [
     ArticlesController::class,'show'
 ])->name('articles.show');
- 
+Route::get('/news/{id}', [
+    ArticlesController::class,'showNews'
+])->name('showNews.show');
 
 // category
 Route::get('/categories', [
@@ -71,6 +78,7 @@ Route::get('/categories/create',[
 Route::get('/categories/{id}', [
     CreatCategory::class,'show'
     ])->name('category.show');
+
 Route::get('/categories/{id}/edit', [
         CreatCategory::class,'edit'
         ])->name('category.edit');
@@ -85,3 +93,44 @@ Route::delete('/categories/{id}', [
 Route::get('/category/{id}',[
     ArticlesController::class,'showView'
 ])->name('cate_show');
+  
+
+//user
+
+Route::get('/res',[
+    HomeController::class,'res'
+])->name('res-form');
+Route::post('/res',[
+    HomeController::class,'resPost'
+])->name('res-main');
+Route::get('/login',[
+    HomeController::class,'login'
+])->name('login.user');
+Route::post('/login',[
+    HomeController::class,'loginPost'
+])->name('loginPost.user');
+Route::get('/logout',[
+    HomeController::class,'logout'
+])->name('logout.user');
+
+
+// create news
+Route::get('/newsBlog',[
+    ArticlesController::class,'indexNews'
+])->name('news.index');
+
+Route::get('/newsBlog/create',[
+    ArticlesController::class,'createdNews'
+])->name('created.news');
+Route::post('/newsBlog/create',[
+    ArticlesController::class,'storeNews'
+])->name('storeNews.news');
+Route::get('/newsBlog/{id}/edit',[
+    ArticlesController::class,'editNews'
+])->name('edit.news');
+Route::put('/newsBlog/{id}/update',[
+    ArticlesController::class,'updateNews'
+])->name('updateNews.news');
+Route::delete('/newsBlog/{id}/delete', [
+    ArticlesController::class,'destroyNews'
+])->name('destroyNews.destroy');
