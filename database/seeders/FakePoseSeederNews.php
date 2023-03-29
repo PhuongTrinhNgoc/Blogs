@@ -6,17 +6,18 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Fake;
 use Illuminate\Support\Facades\DB;
-class FakePoseSeeder extends Seeder
+class FakePoseSeederNews extends Seeder
 {
     public function run(): void
     {
         $fake = Fake::create();
                 for ($i = 0; $i < 10; $i++) {
-                    DB::table('articles')->insert([
+                    DB::table('news')->insert([
                         "title" => $fake->name,
                         "content" => $fake->sentence(10),
-                        "id_category"=>1
+                        "status"=>1
                     ]);
                 }
+                
     }
 }

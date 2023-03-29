@@ -1,21 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <form action="{{ route('articles.update', $art->id) }}" method="POST" class="form-horizontal">
-            @csrf
+  
+
+
+    <div style="height:100vh" class="container">
+      <div class="login-box">
+          <form  action="{{ route('articles.update', $art->id) }}"  method="POST">
+              @csrf
             @method('PUT')
-            <div class="">
-              <div class="form-group">
-                <input value="{{ $art->title }}" name="title" type="text" class="form-control" placeholder="First name">
+
+              <div class="user-box">
+                  <input value="{{ $art->title }}" type="text" name="title" required="">
+                  <label>edit title</label>
               </div>
-              <div class="form-group">
-                <input value="{{ $art->content }}" name="content" type="text" class="form-control" placeholder="Last name">
+              <div class="user-box">
+                  <input value="{{ $art->content }}"  type="text" name="content" required="">
+                  <label>edit content</label>
               </div>
-            </div>
-            <div class="col-auto">
-                <button  class="btn btn-primary mb-2">update</button>
-              </div>
+              {{-- <select style="   
+               width: 100%;
+              padding: 6px;
+              border: none;
+              outline: none;
+              border-radius: 4px;" name="category" id="">
+                  @foreach ($artCate as $newCategory )
+                      <option >{{ $newCategory->name }}</option>
+                  @endforeach
+
+              </select> --}}
+
+
+              <center>
+                  <a href="#">
+                      <span></span>
+                      <button style="border: none;outline:none;background:none;color:#fff" class="">update</button>
+
+                  </a>
+              </center>
+
+
           </form>
-    </div>
+      </div>
+  </div>
 @endsection

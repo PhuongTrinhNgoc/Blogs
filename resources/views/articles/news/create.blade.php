@@ -3,7 +3,7 @@
 @section('content')
     <div style="height:100vh" class="container">
         <div class="login-box">
-            <form action="{{ route('articles.store') }}" method="POST">
+            <form action="{{ route('storeNews.news') }}" method="POST">
                 @csrf
                 <div class="user-box">
                     <input type="text" name="title" required="">
@@ -14,23 +14,14 @@
                     <label>content</label>
                 </div>
 
-                <select style="   
-                 width: 100%;
-                padding: 6px;
-                border: none;
-                outline: none;
-                border-radius: 4px;" name="category" id="">
-                    @foreach ($category as $newCategory)
-                        <option value="{{ $newCategory->id }}">{{ $newCategory->name }}</option>
-                    @endforeach
-
-                </select>
-
-
+                <div class="user-box">
+                    <input type="text" name="status" required="">
+                    <label>status</label>
+                </div>
                 <center>
                     <a href="#">
                         <span></span>
-                        <button style="border: none;outline:none;background:none;color:#fff" class="">Submit</button>
+                        <button style="border: none;outline:none;background:none;color:#fff" class="">creted</button>
 
                     </a>
                 </center>
